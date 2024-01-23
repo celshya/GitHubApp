@@ -1,12 +1,19 @@
-// src/components/InputForm.js
-import React, { useState } from 'react';
 
-const InputForm = ({ onSubmit }) => {
+import React, { useState } from 'react';
+import "../styles/InputForm.css"
+
+const InputForm = ({ onSearch }) => {
   const [username, setUsername] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    onSubmit(username);
+
+    try {
+     
+      onSearch(username);
+    } catch (error) {
+      console.error('Error fetching user data', error);
+    }
   };
 
   return (

@@ -1,13 +1,13 @@
-// App.js
+// src/App.js
 import React from 'react';
-import InputForm from './components/InputForm';
-function App() {
+import HomePage from './components/HomePage';
+import "./App.css"
+const App = () => {
   return (
-    <div className="App">
-      {/* Your components will go here */}
-      <InputForm/>
+    <div className='App'>
+      <HomePage />
     </div>
   );
-}
+};
 
 export default App;

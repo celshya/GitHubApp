@@ -1,0 +1,52 @@
+
+
+  .container {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem;
+    padding: 1rem;
+  }
+  .userRepo{
+    display: flex;
+  }
+  h1 {
+    color: #333;
+  }
+  
+ 
+  .input-form {
+    margin-bottom: 20px;
+  }
+  
+
+  .user-info {
+    margin-bottom: 20px;
+  
+    min-width: 400px;
+   
+  }
+  
+  /* Styles for RepositoryList */
+  .repository-list {
+   
+    list-style: none;
+    padding: 0;
+  }
+  
+  .repository-item {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #fff;
+    
+  }
+  
+  .repository-item h3 {
+    margin-top: 0;
+  }
+  
+  .repository-item p {
+    margin-bottom: 0;
+  }

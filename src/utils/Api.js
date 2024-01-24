@@ -25,3 +25,13 @@ export const getUserRepositories = async (username) => {
     throw error;
   }
 };
+export const getUserFollowers = async (username) => {
+  try {
+    const response = await fetch(`${apiUrl}/users/${username}/followers`);
+    const followers = await response.json();
+    return followers;
+  } catch (error) {
+    console.error('Error fetching followers data', error);
+    throw error;
+  }
+};

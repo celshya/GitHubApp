@@ -1,7 +1,9 @@
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const RepositoryList = ({ repositories }) => {
+  
   return (
     <div>
       <h2>Repositories</h2>
@@ -9,7 +11,9 @@ const RepositoryList = ({ repositories }) => {
         <ul>
           {repositories.map((repo) => (
             <li key={repo.id}>
-              <strong>{repo.name}</strong>: {repo.description}
+              <Link to={`/repository/${repo.id}`}>
+                <strong>{repo.name}</strong>
+              </Link>
             </li>
           ))}
         </ul>

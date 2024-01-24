@@ -1,12 +1,21 @@
-// src/App.js
-import React from 'react';
+// App.js
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import HomePage from './components/HomePage';
-import "./App.css"
+import RepositoryDetailPage from './components/RepositoryDetailPage';
+import FollowersPage from './components/FollowersPage';
+
 const App = () => {
+
+
   return (
-    <div className='App'>
-      <HomePage />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/repository/:id" element={<RepositoryDetailPage  />} />
+        <Route path="/followers/:username" element={<FollowersPage />} />
+      </Routes>
+    </Router>
   );
 };
 

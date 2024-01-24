@@ -1,7 +1,9 @@
-// src/components/UserInfo.js
+
 import React from 'react';
-import "../styles/UserInfo.css"
-const UserInfo = ({ userData }) => (
+import { Link } from 'react-router-dom';
+import '../styles/UserInfo.css';
+
+const UserInfo = ({ userData,followers }) => (
   <div className="user-info-container">
     <h2>User Profile</h2>
     <div className="avatar-container">
@@ -14,12 +16,10 @@ const UserInfo = ({ userData }) => (
       />
     </div>
     <div className='user-details'>
-    <p>{userData.name}</p>
-    <a href='#'><p>Followers: {userData.followers}</p></a>
-    <p>{userData.bio}</p>
-    
-   
-    <p>Twitter: {userData.twitter_username}</p>
+      <p>{userData.name}</p>
+      <Link to={`/followers/${userData.login}`}><p>Followers: {userData.followers}</p></Link>
+      <p>{userData.bio}</p>
+      <p>Twitter: {userData.twitter_username}</p>
     </div>
   </div>
 );

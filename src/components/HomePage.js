@@ -1,14 +1,19 @@
-
-import React, {  useState } from 'react';
+import React, { useState } from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import '../styles/HomePage.css';
 import InputForm from './InputForm';
 import UserInfo from './UserInfo';
 import RepositoryList from './RepositoryList';
-import { getUserData,getUserRepositories } from '../utils/Api';
+import { getUserData, getUserRepositories,getUserFollowers} from '../utils/Api';
+import { setRepositories } from '../actions/repositoryActions';
 
 const HomePage = () => {
+  const dispatch = useDispatch();
+  const repositories = useSelector((state) => state);
+
   const [userData, setUserData] = useState(null);
-  const [repositories, setRepositories] = useState([]);
+ 
 
   const handleSearch = async (username) => {
     try {
@@ -16,21 +21,26 @@ const HomePage = () => {
       setUserData(data);
 
       const repositoriesData = await getUserRepositories(username);
-      setRepositories(repositoriesData);
+      dispatch(setRepositories(repositoriesData || []));
+
+    
     } catch (error) {
       console.error('Error fetching data', error);
     }
   };
 
   return (
-    <div className="container">
-      <h1>GitHub Repository Viewer</h1>
-      <InputForm onSearch={handleSearch}  className="input-form"/>
-      <div className='userRepo'>
-      {userData && <UserInfo userData={userData}  className="user-info"/>}
-      {repositories.length > 0 && <RepositoryList repositories={repositories}  className="repository-list" />}
+
+      <div className="container">
+        <h1>GitHub Repository Viewer</h1>
+        <InputForm onSearch={handleSearch} className="input-form" />
+        <div className="userRepo">
+          {userData && <UserInfo userData={userData} className="user-info" />}
+          {repositories.length > 0 && <RepositoryList repositories={repositories} className="repository-list" />}
+        </div>
+        
       </div>
-    </div>
+    
   );
 };
 

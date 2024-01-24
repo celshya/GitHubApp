@@ -1,8 +1,11 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import '../styles/RepositoryList.css'; 
 
-const RepositoryList = ({ repositories }) => {
+const RepositoryList = () => {
+  const repositories = useSelector((state) => state.repositories);
   
   return (
     <div>
@@ -11,9 +14,13 @@ const RepositoryList = ({ repositories }) => {
         <ul>
           {repositories.map((repo) => (
             <li key={repo.id}>
-              <Link to={`/repository/${repo.id}`}>
+            <img src={repo.owner.avatar_url} alt="avatar"/>
+            <div>
+            <Link className="repo-link" to={`/repository/${repo.id}`}>
                 <strong>{repo.name}</strong>
               </Link>
+              <p>{repo.description}</p></div>
+              
             </li>
           ))}
         </ul>

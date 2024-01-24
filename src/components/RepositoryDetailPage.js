@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import RepositoryDetail from './RepositoryDetail';
 
 const RepositoryDetailPage = () => {
-  const repositories = useSelector((state) => state);
+  const repositories = useSelector((state) => state.repositories);
   const repo = repositories.length > 0 ? repositories : null;
 
   return (

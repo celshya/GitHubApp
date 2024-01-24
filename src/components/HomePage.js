@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
+
 import { useDispatch, useSelector } from 'react-redux';
 import '../styles/HomePage.css';
 import InputForm from './InputForm';
@@ -14,8 +13,6 @@ const HomePage = () => {
   const repositories = useSelector((state) => state.repositories);
   const userData = useSelector((state) => state.userData);
 
-  
- 
   
   const handleSearch = async (username) => {
     try {

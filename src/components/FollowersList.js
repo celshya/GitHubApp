@@ -1,37 +1,66 @@
-
 import React from 'react';
+import { SlArrowLeftCircle } from 'react-icons/sl';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { setSelectedFollower } from '../actions/followerActions';
+import { setRepositories } from '../actions/repositoryActions';
+import { setUserData } from '../actions/userActions';
 import UserInfo from './UserInfo';
-import "../styles/FollowerList.css"
+import { getUserData, getUserRepositories } from '../utils/Api';
+import '../styles/FollowerList.css';
+
 const FollowersList = () => {
   const dispatch = useDispatch();
   const followers = useSelector((state) => state.followers.followers);
-  console.log(followers)
-  const handleFollowerClick = (follower) => {
-    dispatch(setSelectedFollower(follower));
+  const navigate = useNavigate();
+ 
+
+  const handleFollowerClick = async (follower) => {
+    try {
+      
+      dispatch(setSelectedFollower(follower));
+
+     
+      const followerUserData = await getUserData(follower.login);
+      const followerRepositoriesData = await getUserRepositories(follower.login);
+
+      
+      dispatch(setUserData(followerUserData));
+      dispatch(setRepositories(followerRepositoriesData || []));
+
+      
+      navigate('/');
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
   };
 
   return (
-    <div className='follower-list-container'>
-    <UserInfo/>
-       <div className='follower-names'>
-      <h2>Followers List</h2>
-      <ul>
-        {followers.map((follower) => (
-          <li key={follower.id}>
-            <img src={follower.avatar_url}alt="avatar"/>
-            <Link className='follower-link' to={`/followers/${follower.login}`} onClick={() => handleFollowerClick(follower)}>
-             {follower.login}
-            </Link>
-          </li>
-        ))}
-      </ul>
-      <Link to="/">Back to Home Page</Link>
+    <div className="follower-list-container">
+      <Link to="/">
+        <SlArrowLeftCircle size={30} />
+      </Link>
+      <UserInfo />
+      <div className="follower-names">
+        <p>Followers</p>
+        <ul>
+          {followers.map((follower) => (
+            <li className='follower-list' key={follower.id}>
+              
+              <img src={follower.avatar_url} alt="avatar" />
+              <Link
+                className="follower-link"
+                to={`/`}
+                onClick={() => handleFollowerClick(follower)}
+              >
+                {follower.login}
+              </Link>
+              <button className='btn-follow'>follow</button>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
-    </div>
-   
   );
 };
 

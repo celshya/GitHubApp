@@ -1,5 +1,6 @@
 .follower-list-container{
     display: flex;
+  
     
 }
 
@@ -12,3 +13,36 @@
     color: black;
     margin-left: 1rem;
   }
+.follower-link:hover{
+    color: blue;
+}
+  .btn-follow{
+    background-color: white;
+    color: black;
+  }
+
+  .follower-list{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 30%;
+  }
+
+  @media only screen and (max-width: 600px) {
+    .follower-list-container {
+        flex-direction: column; 
+        align-items: center;
+    }
+
+    .follower-names {
+        width: 100%; 
+        box-sizing: border-box; 
+        padding: 1rem; 
+    }
+
+    .follower-list {
+        width: 100%; 
+        box-sizing: border-box;
+        padding: 0.5rem;
+    }
+}

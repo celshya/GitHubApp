@@ -1,6 +1,5 @@
 
 import React from 'react';
-import { Link } from 'react-router-dom';
 import '../styles/UserInfo.css';
 
 import { useDispatch } from 'react-redux';
@@ -43,7 +42,8 @@ return (
       <p>{userData.name}</p>
       <button className="button"onClick={handleFollowersClick}>Followers: {userData.followers}</button>
       <p>{userData.bio}</p>
-      <p>Twitter: {userData.twitter_username}</p>
+      <p>{userData.location}</p>
+      <a href='#'>Twitter: {userData.twitter_username}</a>
     </div>
   </div>
 );

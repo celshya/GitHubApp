@@ -24,6 +24,7 @@ const InputForm = ({ onSearch }) => {
           type="text"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
+          placeholder='Type username..'
           required
         />
       </label>

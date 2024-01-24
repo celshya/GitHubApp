@@ -7,11 +7,14 @@
     height:150px;
 }
 .profile-container{
-    width: 400px;
+    min-width: 400px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    border:1px solid gainsboro;
+    border-radius: 1rem;
+    padding: 10px;
 }
 
 .content-container{
@@ -19,4 +22,10 @@
     justify-content: start;
     align-items: start;
     flex-direction: column;
+   
+}
+
+.dummy-btn {
+    background-color: azure;
+    color: blue;
 }

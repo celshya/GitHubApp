@@ -7,19 +7,27 @@ div {
   
   /* Style each repository list item */
   ul {
+    display: flex;
     list-style-type: none;
     padding: 0;
+    flex-wrap: wrap;
+    gap: 10px; /* Add space between items */
   }
-  .repo-link{
-    text-decoration: None;
-    color:blue;
+  
+  .repo-link {
+    text-decoration: none;
+    color: blue;
   }
+  
   li {
+    width: calc(50% - 10px); /* Calculate width with space between items */
+    box-sizing: border-box;
     display: flex;
-    align-items: center;
+    align-items: stretch;
     border: 1px solid #ddd;
     margin-bottom: 10px;
     padding: 10px;
+    border-radius: 1rem;
   }
   
   /* Style the avatar image */
@@ -39,10 +47,18 @@ div {
     display: block;
     font-size: 1.2em;
     margin-bottom: 5px;
+  
   }
   
   li p {
     margin: 0;
     color: #555;
+  }
+  
+  /* Responsive styles for smaller screens */
+  @media (max-width: 768px) {
+    li {
+      width: 100%; /* Full width on smaller screens */
+    }
   }
   

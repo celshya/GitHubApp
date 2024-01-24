@@ -5,14 +5,15 @@ import '../styles/UserInfo.css';
 
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { setFollowers, setSelectedFollower } from '../actions/followerActions';
+import { setFollowers } from '../actions/followerActions';
 import { getUserFollowers } from '../utils/Api';
+import { useSelector } from 'react-redux';
 
-
-const UserInfo = ({ userData}) => {
+const UserInfo = () => {
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const userData = useSelector((state) => state.userData);
   const handleFollowersClick = async () => {
    
     try {
@@ -28,7 +29,7 @@ const UserInfo = ({ userData}) => {
 
 return (
   <div className="user-info-container">
-    <h2>User Profile</h2>
+    
     <div className="avatar-container">
       <img
         src={userData.avatar_url}
@@ -40,7 +41,7 @@ return (
     </div>
     <div className='user-details'>
       <p>{userData.name}</p>
-      <button onClick={handleFollowersClick}>Followers: {userData.followers}</button>
+      <button className="button"onClick={handleFollowersClick}>Followers: {userData.followers}</button>
       <p>{userData.bio}</p>
       <p>Twitter: {userData.twitter_username}</p>
     </div>

@@ -17,7 +17,7 @@ const InputForm = ({ onSearch }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form  onSubmit={handleSubmit}>
       <label>
         GitHub Username:
         <input
@@ -27,7 +27,7 @@ const InputForm = ({ onSearch }) => {
           required
         />
       </label>
-      <button type="submit">Search</button>
+      <button className='input-btn' type="submit">Search</button>
     </form>
   );
 };

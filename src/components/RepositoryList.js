@@ -6,10 +6,10 @@ import '../styles/RepositoryList.css';
 
 const RepositoryList = () => {
   const repositories = useSelector((state) => state.repositories);
-  
+  console.log("hello",repositories)
   return (
     <div>
-      <h2>Repositories</h2>
+      
       {repositories.length > 0 ? (
         <ul>
           {repositories.map((repo) => (

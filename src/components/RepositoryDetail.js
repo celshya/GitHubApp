@@ -2,6 +2,7 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import "../styles/RepositoryDetail.css"
+import { Link } from 'react-router-dom';
 const RepositoryDetail = ({ repo }) => {
   
   const { id } = useParams();
@@ -27,6 +28,7 @@ const RepositoryDetail = ({ repo }) => {
         <h2>{repository.name}</h2>
         <button aria-label="Click me">Set up a Plan</button>
         <p>{repository.description}</p>
+        <Link to="/">Back to Home Page</Link>
       </div>
     </div>
   );

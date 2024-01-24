@@ -1,0 +1,14 @@
+.follower-list-container{
+    display: flex;
+    
+}
+
+.follower-names{
+    min-width: 700px;
+}
+
+.follower-link {
+    text-decoration: none;
+    color: black;
+    margin-left: 1rem;
+  }

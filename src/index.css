@@ -1,8 +1,17 @@
 body {
-    text-align: center;
-   font-family: "Consolas", "Courier New", monospace;
-    background-color:antiquewhite;
-    
-    
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #f6f8fa;
+    color: #24292e;
   }
+/* Button styles */
 
+  /* Secondary button styles */
+  .secondary-button {
+    background-color: #ffffff;
+    color: #0366d6;
+  }
+  
+  .secondary-button:hover {
+    background-color: #f1f8ff;
+  }
+  

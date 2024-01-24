@@ -20,4 +20,32 @@
     object-fit: cover; 
     border-radius: 50%; 
   }
+
+  button {
+    width: auto;
+    height: auto;
+    display: inline-block;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    user-select: none;
+    border: 1px solid #d1d5da;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+    background-color: green;
+    color: #ffffff;
+  }
   
+button:hover {
+    background-color: #4CAF50;
+  }
+form button{
+  background-color: green;
+}
+
+form button:hover{
+  background-color: #4CAF50;
+}
